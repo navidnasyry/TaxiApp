@@ -6,6 +6,8 @@ from rest_framework.reverse import reverse
 from rest_framework.test import APITestCase
 from trips.serializers import TripSerializer, UserSerializer
 from trips.models import Trip
+from trips.serializers import TripSerializer, UserSerializer 
+from trips.models import Trip
 import base64
 import json
 
