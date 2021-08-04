@@ -84,14 +84,24 @@ ASGI_APPLICATION = 'taxi.routing.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('PGDATABASE'),#mydb
-        'USER': os.getenv('PGUSER'),#navid
-        'PASSWORD': os.getenv('PGPASSWORD'),#navidnasiri
+        'NAME': os.getenv('PGDATABASE', 'mydb'),#mydb
+        'USER': os.getenv('PGUSER', 'navid'),#navid
+        'PASSWORD': os.getenv('PGPASSWORD', 'navidnasiri'),#navidnasiri
         'HOST': os.getenv('PGHOST', 'localhost'),
         'PORT': os.getenv('PGPORT', '5432')
     }
 }
 
+# print(DATABASES['default']['ENGINE'])
+# print(DATABASES['default']['NAME'] )
+# print(DATABASES['default']['USER'] )
+# print(DATABASES['default']['PASSWORD'] )
+
+
+# import sys
+# if 'test' in sys.argv or 'test\_coverage' in sys.argv: #Covers regular testing and django-coverage
+#     DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql'
+#     DATABASES['default']['NAME'] = ':memory:'
 AUTH_USER_MODEL= 'trips.User'
 
 # Password validation
